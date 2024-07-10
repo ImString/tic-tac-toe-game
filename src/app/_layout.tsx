@@ -1,6 +1,6 @@
 import '@/styles/global.css';
 
-import { View, StatusBar } from 'react-native';
+import { View, StatusBar, Switch } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import { Slot } from 'expo-router';
 
@@ -13,7 +13,7 @@ import {
 
 import { Loading } from '@/components/loading';
 
-export default function Layout() {
+const Layout: React.FC<{}> = () => {
 	const { colorScheme, setColorScheme } = useColorScheme();
 	const [fontsLoaded] = useFonts({
 		Inter_500Medium,
@@ -27,7 +27,7 @@ export default function Layout() {
 	}
 
 	return (
-		<View className="flex-1 bg-zinc-100 dark:bg-dark-dark">
+		<View className="flex-1 bg-zinc-100 dark:bg-black">
 			<StatusBar
 				barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
 				backgroundColor="transparent"
@@ -36,4 +36,6 @@ export default function Layout() {
 			<Slot />
 		</View>
 	);
-}
+};
+
+export default Layout;

@@ -1,12 +1,12 @@
 {
 	"expo": {
-		"name": "tictac-toe",
-		"slug": "tictac-toe",
+		"name": "Tic Tac Toe",
+		"slug": "tic-tac-toe",
+		"userInterfaceStyle": "automatic",
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/images/icon.png",
 		"scheme": "myapp",
-		"userInterfaceStyle": "automatic",
 		"splash": {
 			"image": "./assets/images/splash.png",
 			"resizeMode": "contain",
@@ -19,7 +19,8 @@
 			"adaptiveIcon": {
 				"foregroundImage": "./assets/images/adaptive-icon.png",
 				"backgroundColor": "#ffffff"
-			}
+			},
+			"package": "com.imstring.tictactoe"
 		},
 		"web": {
 			"bundler": "metro",

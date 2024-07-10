@@ -27,8 +27,10 @@ const stepDetails = {
 	}
 };
 
-export function Steps() {
+export const StepsPage: React.FC<{}> = () => {
 	const [step, setStep] = useState<StepForm>(StepForm.FIRST_STEP);
+
+	const onFinishStep = () => {};
 
 	return (
 		<View className="flex-1 items-center justify-center">
@@ -45,11 +47,13 @@ export function Steps() {
 			</View>
 			<ProgressSteps
 				steps={[
-					{ label: 'a', step: 1 },
-					{ label: 'b', step: 2 },
-					{ label: 'c', step: 3 }
+					{ label: StepForm.FIRST_STEP, step: 1 },
+					{ label: StepForm.TWO_STEP, step: 2 },
+					{ label: StepForm.THREE_STEP, step: 3 }
 				]}
+				setLabel={setStep}
+				onFinish={onFinishStep}
 			/>
 		</View>
 	);
-}
+};
