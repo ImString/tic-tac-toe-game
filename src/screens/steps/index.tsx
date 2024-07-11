@@ -13,24 +13,22 @@ const stepDetails = {
 		title: 'Bem-vindo',
 		description:
 			'Um dos jogos mais antigos do mundo agora\ndisponível no seu dispositivo móvel!',
-		icon: require('@/assets/step-one.png')
+		icon: require('@/assets/images/step-one.png')
 	},
 	[StepForm.TWO_STEP]: {
 		title: 'Competir',
 		description: 'Jogue com seus amigos e prove\nque você é um adversário digno!',
-		icon: require('@/assets/step-two.png')
+		icon: require('@/assets/images/step-two.png')
 	},
 	[StepForm.THREE_STEP]: {
 		title: 'Placar',
 		description: 'Ganhe pontos e faça seu próprio caminho\naté o topo do placar!',
-		icon: require('@/assets/step-three.png')
+		icon: require('@/assets/images/step-three.png')
 	}
 };
 
-export const StepsPage: React.FC<{}> = () => {
+export const Steps: React.FC<{ onFinishStep?: () => void }> = props => {
 	const [step, setStep] = useState<StepForm>(StepForm.FIRST_STEP);
-
-	const onFinishStep = () => {};
 
 	return (
 		<View className="flex-1 items-center justify-center">
@@ -52,7 +50,7 @@ export const StepsPage: React.FC<{}> = () => {
 					{ label: StepForm.THREE_STEP, step: 3 }
 				]}
 				setLabel={setStep}
-				onFinish={onFinishStep}
+				onFinish={props.onFinishStep}
 			/>
 		</View>
 	);
