@@ -1,10 +1,10 @@
 package me.imstring.tictactoegame.feature.game.presentation.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import me.imstring.tictactoegame.feature.game.domain.model.Mark
@@ -15,33 +15,35 @@ fun GameStatus(
     winner: Mark?,
     isDraw: Boolean
 ) {
+    val neutralContentColor = MaterialTheme.colorScheme.onBackground
+
     when {
         winner != null -> {
+            val winnerText = when (winner) {
+                Mark.X -> "O X"
+                Mark.O -> "A bolinha"
+            }
+
+            val winnerColor = when (winner) {
+                Mark.X -> MaterialTheme.colorScheme.primary
+                Mark.O -> MaterialTheme.colorScheme.tertiary
+            }
+
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                val winPlayerText = when (currentPlayer) {
-                    Mark.X -> "O X"
-                    Mark.O -> "A bolinha"
-                }
-
-                val winPlayerColor = when (currentPlayer) {
-                    Mark.X -> Color(0xFF2475C5)
-                    Mark.O -> Color(0xFFE45651)
-                }
-
                 Text(
-                    text = "$winPlayerText ganhou!",
+                    text = "$winnerText ganhou!",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Medium,
-                    color = winPlayerColor
+                    color = winnerColor
                 )
 
                 Text(
                     text = "Parabéns",
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Normal,
-                    color = Color(0xFFADADAD)
+                    color = neutralContentColor
                 )
             }
         }
@@ -51,7 +53,7 @@ fun GameStatus(
                 text = "EMPATE!",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFFADADAD)
+                color = neutralContentColor
             )
         }
 
@@ -65,7 +67,7 @@ fun GameStatus(
                 text = "Vez $playerText",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Medium,
-                color = Color(0xFFADADAD)
+                color = neutralContentColor
             )
         }
     }

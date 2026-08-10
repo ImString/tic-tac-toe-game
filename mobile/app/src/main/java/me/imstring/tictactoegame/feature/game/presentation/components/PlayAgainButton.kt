@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -26,17 +27,17 @@ fun PlayAgainButton(
         onClick = onClick,
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
+            containerColor = Color.Transparent,
+            contentColor = MaterialTheme.colorScheme.onSurface
         ),
         border = BorderStroke(
             width = 1.dp,
-            color = Color(0xFF808080)
+            color = MaterialTheme.colorScheme.outline
         ),
         shape = RectangleShape
     ) {
         Icon(
             imageVector = Icons.Default.Refresh,
-            tint = Color(0xFFADADAD),
             contentDescription = "Jogar novamente"
         )
 
@@ -45,8 +46,7 @@ fun PlayAgainButton(
         Text(
             text = "Jogar Novamente",
             fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            color = Color(0xFFADADAD)
+            fontWeight = FontWeight.Normal
         )
     }
 }

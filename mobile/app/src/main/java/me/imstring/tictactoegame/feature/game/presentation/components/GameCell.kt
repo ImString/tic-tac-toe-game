@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Icon
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.MaterialTheme
 import me.imstring.tictactoegame.feature.game.domain.model.Mark
 import me.imstring.tictactoegame.ui.icons.OIcon
 import me.imstring.tictactoegame.ui.icons.XIcon
@@ -21,17 +21,18 @@ fun GameCell(
     mark: Mark?,
     onClick: () -> Unit
 ) {
-    val backgroundColor = when (mark) {
-        Mark.X -> Color(0x332475C5)
-        Mark.O -> Color(0x33E45651)
-        null -> Color.Transparent
+    val markColor = when (mark) {
+        Mark.X -> MaterialTheme.colorScheme.primary
+        Mark.O -> MaterialTheme.colorScheme.tertiary
+        null -> null
     }
 
-    val borderColor = when (mark) {
-        Mark.X -> Color(0xFF2475C5)
-        Mark.O -> Color(0xFFE45651)
-        null -> Color(0xFF212835)
+    val backgroundColor = when (mark) {
+        null -> MaterialTheme.colorScheme.surface
+        else -> markColor!!.copy(alpha = 0.20f)
     }
+
+    val borderColor = markColor ?: MaterialTheme.colorScheme.outlineVariant
 
     val icon = when (mark) {
         Mark.X -> XIcon
