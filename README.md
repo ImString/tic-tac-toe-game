@@ -31,6 +31,13 @@ Ele será responsável pela comunicação necessária para as partidas multiplay
 - Reinício da partida;
 - Suporte aos temas claro e escuro do sistema.
 
+## Screenshots
+
+| Tela | Tema claro | Tema escuro |
+|---|---|---|
+| Tela inicial | <img src="./preview/light-home.png" alt="Tela inicial no tema claro" width="250"/> | <img src="./preview/dark-home.png" alt="Tela inicial no tema escuro" width="250"/> |
+| Tela de vitória | <img src="./preview/light-win.png" alt="Tela de vitória no tema claro" width="250"/> | <img src="./preview/dark-win.png" alt="Tela de vitória no tema escuro" width="250"/> |
+
 ## Objetivo do projeto
 
 A versão completa será um jogo da velha multiplayer, conectando o aplicativo mobile a uma API criada com Spring Boot e Kotlin. Até que essa integração seja desenvolvida, todas as partidas acontecem localmente no mesmo aparelho.
