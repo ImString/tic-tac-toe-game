@@ -21,6 +21,9 @@ fun GameRoute() {
                 state = gameState,
                 cellIndex = cellIndex
             )
+        },
+        onPlayAgain = {
+            gameState = GameState()
         }
     )
 }
