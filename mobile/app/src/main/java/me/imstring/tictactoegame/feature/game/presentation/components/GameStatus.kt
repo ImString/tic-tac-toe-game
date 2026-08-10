@@ -5,8 +5,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 import me.imstring.tictactoegame.feature.game.domain.model.Mark
 
 @Composable
@@ -34,15 +32,13 @@ fun GameStatus(
             ) {
                 Text(
                     text = "$winnerText ganhou!",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Medium,
+                    style = MaterialTheme.typography.titleLarge,
                     color = winnerColor
                 )
 
                 Text(
                     text = "Parabéns",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Normal,
+                    style = MaterialTheme.typography.titleMedium,
                     color = neutralContentColor
                 )
             }
@@ -51,8 +47,7 @@ fun GameStatus(
         isDraw -> {
             Text(
                 text = "EMPATE!",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.titleLarge,
                 color = neutralContentColor
             )
         }
@@ -65,8 +60,7 @@ fun GameStatus(
 
             Text(
                 text = "Vez $playerText",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Medium,
+                style = MaterialTheme.typography.titleLarge,
                 color = neutralContentColor
             )
         }
